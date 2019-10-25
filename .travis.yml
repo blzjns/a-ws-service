@@ -3,9 +3,8 @@ node_js:
   - "8"
 install:
   - npm install
-before_deploy:
-  - npm run tslint
-  - npm run compile
+script:
+  - npm test
 deploy:
   provider: heroku
   api_key:
