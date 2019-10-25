@@ -11,7 +11,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     # script: node_modules/.bin/tobi service:push $SERVICE_INSTANCE_ID $SERVICE_INSTANCE_SECRET $TRAVIS_TAG -t https://service-publisher.tools.sap.corp/gcp -c '$ENV_CONFIG'
-    script: echo "Hello travissss"
+    script: echo "Hello travissss@"
     on:
       branch: master
       tags: true
