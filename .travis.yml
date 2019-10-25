@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-- '8'
+  - "8"
 install:
-- npm install
+  - npm install
 script:
-- npm run tslint
-- npm run compile
+  - npm run tslint
+  - npm run compile
 deploy:
   provider: heroku
   api_key:
     secure: sVkOaVCb4E9r9LsKEvgrFyNrazS7d9MLx7X8X13ZG8pFPON0s5iNGPpZWMe0vEZqTqdCh8yzfppJDE25p/wW/x2ZTfiks78zV3vxTL7HTbnwAsnirlo6L3+vsQ0bJAY7Z/SAmCfMOeIzPT981Cjq/AUeuOV1QU0wMDxsoGjj6F8+BbpjktC9NhoAd2lfUaTAqMtIbTARH4Qi2o1jSEMoeogSNqYhENBcJtrnrxevWj51JgEOKBJwJTUkhl5p//1Ms9nVx36mV/llgEK/Ltgt7NO5aWPqWtvF0OXoiHuAIiLtusmC1BuYnMyHXXkkrgBLebe9/j3UO1PAkVRjeRO6RCVO/pIaAEyXxwpMd2sG9ZhkJPDaqn8aMFXy9awCAz9Ugm8YgRY38ZqQYGVdBXHToac4SOR+maj0LpuhoDCKi5oNEjlCPiT3Yb2BEuqqjPoeBrSAFLlea7zUrhaY+eaQ8sn7+e2A67MrZKAn8rp7Mb+8NefAG6gbYR+/ID5cpDRMxhgmu9lUQIdpm+RWnLDQI7NKHjz4UEBQZVOodfcLfjtPTaLlFZK50l4X+Q1mEhP4NxZwDqnL20M0PIyZ8CGKRwJeAZHPSGtozhkpOnv72pwu5uKFHU5Lxidx4AMo4GH3EhhXIrPJGgtBgcjKl/z+Wiokijv8ES/naQjouTT3Gok=
   on:
-    tags: true
+    branch: master
