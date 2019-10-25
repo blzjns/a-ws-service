@@ -98,20 +98,33 @@ async function _ensureDbIndex() {
     })
 }
 
-async function _removeOldEvents() {
-    const foundOldEvents = await db.find({
-        selector: {
-            dateTime: {
-                $lt: new Date()
-            }
-        }
-    })
+function _removeOldEvents(delayTime: number) {
+    const todayDate = new Date()
+    const getNextDelayTime = () => {
+        const nextCleaningDate = new Date(todayDate)
+        nextCleaningDate.setDate(nextCleaningDate.getDate() + 1)
+        nextCleaningDate.setHours(0, 0, 0)
 
-    for (const eventDoc of foundOldEvents.docs) {
-        await db.remove(eventDoc._id, eventDoc._rev)
-        console.info(`Deleted old event with id '${eventDoc._id}' from app db...`)
+        return delayTime || (nextCleaningDate.getTime() - todayDate.getTime())
     }
+
+    setTimeout(async () => {
+        const foundOldEvents = await db.find({
+            selector: {
+                dateTime: {
+                    $lt: new Date()
+                }
+            }
+        })
+
+        for (const eventDoc of foundOldEvents.docs) {
+            await db.remove(eventDoc._id, eventDoc._rev)
+            console.info(`Deleted old event with id '${eventDoc._id}' from app db...`)
+        }
+
+        _removeOldEvents(getNextDelayTime())
+    }, delayTime)
 }
 
 _ensureDbIndex()
-_removeOldEvents()
+_removeOldEvents(1)

@@ -1,22 +1,22 @@
-# turbulent-test
+# a-ws-service
 
-Write a node/typescript service with a websocket interface to handle clients.
-The service should allow you to send a command message to add an event reminder with a
-name and a specific time. If the time is reached, the service should notify all connected clients
-of the event.
-The service state should persist data if it restarts.
+A simple app that implements websocket using [socket.io](https://www.npmjs.com/package/socket.io) to handle event reminders.
 
-No UI required.
+Users can create event reminders in the app, and have all open connections notified at the specified time.
 
-Special notes: Architecture and test coverage will be reviewed.
+The app cleans its past events each day at 12 am (server time) and also during start.
 
 ## Running the app:
+First install the app's dependencies running `$ npm i`, then:
 ```
-$ npm i && npm start
+$ npm run compile
+$ npm start
 ```
 
 ## Deploy with Travis:
-Create the following env. variables on `HEROKU_API_KEY`, `HEROKU_APP_NAME`.
+Create the following env. variables on Travis CI: 
+- `HEROKU_APP_NAME`: Run `$ heroku apps:info` to get app's name
+- `HEROKU_API_KEY`: Run `$ travis encrypt $(heroku auth:token)` to get heroku's api key
 ```
 $ npm run deploy
 ```
