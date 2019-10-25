@@ -1,0 +1,40 @@
+{
+  "name": "turbulent-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "tslint": "tslint --project ./src",
+    "compile": "tsc -p ./tsconfig.json",
+    "deploy": "./deploy.sh",
+    "start": "node ./dist/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Jonas Hoehne-Silva",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^10.12.18",
+    "@types/socket.io": "1.4.33",
+    "@types/socket.io-client": "^1.4.32",
+    "@types/pouchdb": "^6.4.0",
+    "socket.io-client": "^2.3.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.12.0",
+    "typescript": "^3.6.4",
+    "mock-socket": "^9.0.2"
+  },
+  "dependencies": {
+    "pouchdb": "^7.1.1",
+    "pouchdb-find": "^7.1.1",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

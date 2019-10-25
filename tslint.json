@@ -1,0 +1,20 @@
+{
+    "rules": {
+        "triple-equals": false,
+        "no-var-requires": false,
+        "quotemark": false,
+        "only-arrow-functions": false,
+        "class-name": false,
+        "no-console": false,
+        "eofline": false,
+        "no-unsafe-any": false,
+        "strict-boolean-expressions": false,
+        "max-line-length": false,
+        "max-classes-per-file": false,
+        "object-literal-key-quotes": [
+            true,
+            "as-needed"
+        ],
+        "no-string-literal": true
+    }
+}

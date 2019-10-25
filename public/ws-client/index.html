@@ -1,0 +1,51 @@
+<html>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script type="text/javascript" src="client.js"></script>
+
+<style>
+    .form-control {
+        padding: 5px;
+    }
+
+    .lastEvent {
+        color: grey;
+        margin-bottom: 15px;
+    }
+
+    input[type=number] {
+        width: 40px;
+    }
+</style>
+
+<body>
+    <h1>Client <span id="clientId"></span></h1>
+
+    <div>
+        <b>Add event</b>
+        <div class="form-control">
+            <label>Name:</label>
+            <input id="event-name" type="text" placeholder="Enter event name..." />
+        </div>
+
+        <div class="form-control">
+            <label>24h time:</label>
+            <input id="event-time-hour" onchange="setMinHours()" min="1" max="24" type="number" placeholder="HH" />
+            <input id="event-time-minute" min="0" max="59" type="number" placeholder="MM" />
+        </div>
+
+        <div class="form-control">
+            <button onclick="addEvent()">Create</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="lastEvent">
+        <span id="lastevent-txt"></span>
+    </div>
+
+    <b>Events:</b>
+    <div id="events"></div>
+</body>
+
+</html>

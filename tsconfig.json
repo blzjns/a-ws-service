@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "target": "esnext",
+        
+        "sourceMap": true,
+        "rootDir": "./",
+        "outDir": "./dist"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
