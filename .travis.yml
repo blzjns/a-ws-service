@@ -5,13 +5,12 @@ install:
   - npm install
 script:
   - npm run tslint
-  - npm run test
-
+  - npm run compile
+before_deploy:
+  - travis encrypt $(heroku auth:token) --add heroku.deploy.api.key
 deploy:
-  - provider: script
-    skip_cleanup: true
-    # script: node_modules/.bin/tobi service:push $SERVICE_INSTANCE_ID $SERVICE_INSTANCE_SECRET $TRAVIS_TAG -t https://service-publisher.tools.sap.corp/gcp -c '$ENV_CONFIG'
-    script: echo "Hello travissss@"
-    on:
-      branch: master
-      tags: true
+  provider: heroku
+  api_key:
+    secure: W4P8+gHgAIMCKJBJRREOkzGLLlplld1g3leAsnzK48zrH0FbZPWZicStzceK05QLmMT6telEe07O/SdEkRm3r9Oe8ePzA8A3kSYOYfGDnZ/8IoOFOsnP4pOqWW0jT1O1IFTV0M625UWZH3xM9MUVjaG0gqs1y7uj0M+tEmVeVq4KTtr5tk9BBnbYt0SPspgYx+BEBmm0rP3o41awQ8joTBdWmZZygrMtI1l1U5l9C3L2jjHRzQZLvedsHBpmFYW8cSJGl3AvOH5wMVxLDKsW9/C486oAxpdnuysP9I3DrK8VWjEgjsLWE8PXQDgOD/DXfPp4UMXk1eVTNlskezbhKYohcI7IApZYsw4Z4B6tA4d2dV1O7IT1/9VvsCpuymY/ODUsHnQaEJufzNv15V5Di28lZb7BIzM8hJy8mL0Ufm90IirwzyLBLlaTJ9AqGpg/xf7pX/91twxpLJaf3nbH7QQ8aaUEI+1l7YysYc0Jke8ayc6zbubF2rodRFECEFBLbglHEpvzdc2UYL8k0k+mrbuFhVOv9ws5101wIFKCtgDn9xDBJOHlLJiDkpxYIXpSwyDhwTbMFUEoy6y/wialohXRVlNkENJ1STEBSy34LSwBUpTdlFJLrpXtB/w2jv2IzSU1/VncVYmhxC9G4/Au2hmxIs0E1staICZmAhNBHKM=
+  on:
+    tags: true
