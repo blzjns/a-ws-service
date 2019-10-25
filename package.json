@@ -9,7 +9,6 @@
     "jest-coverage": "jest --coverage",
     "tslint": "tslint --project .",
     "compile": "tsc -p ./tsconfig.json",
-    "deploy": "./deploy.sh",
     "start": "node ./dist/src/index.js"
   },
   "repository": {
