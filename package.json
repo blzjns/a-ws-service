@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run tslint && npm run compile",
+    "test": "npm run tslint && npm run compile && ls",
     "jest": "jest --detectOpenHandles",
     "jest-coverage": "jest --coverage",
     "tslint": "tslint --project .",
