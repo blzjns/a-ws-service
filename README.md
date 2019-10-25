@@ -15,7 +15,8 @@ Special notes: Architecture and test coverage will be reviewed.
 $ npm i && npm start
 ```
 
-## Deploy to heroku:
+## Deploy with Travis:
+Create the following env. variables on `HEROKU_API_KEY`, `HEROKU_APP_NAME`.
 ```
 $ npm run deploy
 ```
