@@ -13,6 +13,12 @@ $ npm run compile
 $ npm start
 ```
 
+## Test with jest:
+Travis CI runs `$ npm test` after `$ npm install`, so it's reserved to transpile `.ts` to `.js`. Instead, run:
+```
+$ npm run jest
+```
+
 ## Deploy with Travis:
 Create the following env. variables on Travis CI: 
 - `HEROKU_APP_NAME`: Run `$ heroku apps:info` to get app's name
