@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "jest-coverage": "jest --coverage",
     "tslint": "tslint --project .",
     "compile": "tsc -p ./tsconfig.json",
