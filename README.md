@@ -20,9 +20,11 @@ $ npm run jest
 ```
 
 ## Deploy with Travis:
-Create the following env. variables on Travis CI: 
-- `HEROKU_APP_NAME`: Run `$ heroku apps:info` to get app's name
-- `HEROKU_API_KEY`: Run `$ travis encrypt $(heroku auth:token)` to get heroku's api key
+Create `HEROKU_APP_NAME` env. variable on Travis CI. Run command `$ heroku apps:info` to get app's name.
+
+Then, run `$ travis encrypt $(heroku auth:token) --add deploy.api_key` to get [`deploy.apy_key.secure`](./.travis.yml) added to the [.travis.yml](./.travis.yml) file.
+
+Finally, run:
 ```
 $ npm run deploy
 ```
